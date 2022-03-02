@@ -1,4 +1,4 @@
-# intrusion-detection-system
+# Intrusion detection system
 A simple network intrusion detection system using classification (decision tree &amp; xG boost)
 
 __Loading and Summarizing the dataset__
