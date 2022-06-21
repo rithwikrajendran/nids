@@ -1,5 +1,5 @@
 # Intrusion detection system
-A simple network intrusion detection system using classification (decision tree &amp; xG boost)
+A simple network intrusion detection system using classification (decision tree &amp; xG boost). This was done as a mini-pet project using a toy dataset.
 
 __Loading and Summarizing the dataset__
 
