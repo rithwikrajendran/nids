@@ -2,13 +2,13 @@
 
 A simple network intrusion detection system using classification (decision tree &amp; xG boost). This was done as a mini-pet project using a toy dataset. Decision Tree is a supervised non-linear tree-algorithm which can be used for both classification as well as regression. We went ahead with the decision tree algorithm as it good at generalising non-linear data although it does tend to overfit. This is an initial attempt and can be further improved.
 
-### Data Import and Exploration
+## Data Import and Exploration
 
 Initially, the dataset is loaded and evaluated by having a look at the columns, type of values the columns hold and also having a look at the number of unique values each column holds to get an initial idea on the data.
 From the initial look, we can observe that there are different features that hold discrete values and some that hold continuous values. Also, a few of them are categorical variables which would need to be dealt with accordingly further down.
 The final column/feature is the output variable which depicts if a particular row of data leads to be detected as an anomaly or not (normal).
 
-### Data Pre-processing, Cleaning & Transformation
+## Data Pre-processing, Cleaning & Transformation
 
 Before building the model, it is important that we pre-process, clean and transform the data to a usable one such that we avoid any kind of redundancies, noise, missing data etc. that might actually disrupt us from building a good model.
 The following were done by us: -
@@ -24,7 +24,7 @@ This is an important step. We also mapped the output variable/feature, class to 
 
 If the number of missing or NaN values present in the dataset is considerably small compared to the size of the whole dataset, it wouldn’t hurt to remove such data. Hence, we remove the rows where any of the column value is missing/NaN.
 
-### Feature Selection
+## Feature Selection
 
 Once we are done with pre-processing and cleaning our data, the next step is to remove unwanted features or columns from our dataset. The lesser the features, the better or easier the classification and the performance also improves.
 In addition, there is no use of features that have a single unique value throughout or almost no different unique values spread across the whole dataset. Also, we could remove highly correlated features so as to avoid redundancy.
@@ -39,13 +39,13 @@ In our case, we had 40 columns/features initially. After removing quasi-constant
 
 In our scenario, we’ll take the threshold as 0.9 and remove those features which are highly correlated. There were 7 features that were removed, namely – srv_serror_rate, srv_rerror_rate, num_root, dst_host_srv_serror_rate, dst_host_srv_rerror_rate, dst_host_serror_rate, dst_host_same_srv_rate
 
-### Modeling
+## Modeling
 
 The final step is to build our model as the data is full prepared and ready. We’ll one again leverage scikit-learn to split our data into train and test sets.
 We split our data into train and test in a 4:1 ratio i.e. 67% train data and 33% test data. We could opt 80-20 or 50-50 splits as well (train-test)
 Post that, we use the Decision Tree Classifier with entropy as our criterion and a max depth of 4. And then we train the model with our training just taking less than 1 second. Post-training, we do the prediction with the test data and that also takes less than a second.
 
-### Performance Evaluation
+## Performance Evaluation
 
 We can observe that the train and test accuracies are 91.27% and 90.66% respectively, which is pretty good. To see if the accuracy can be improved, we try to train and test using the XG Boost algorithm as well leveraging the XGBClassifier. After train and test, we can observe that the accuracy improved by quite a good margin.
 Training accuracy jumped to 98.72% and the test accuracy was 98.51%. The XG boost algorithm basically makes use of gradient boosting decision tree algorithm. Potentially, future steps could improve hyperparameter tuning to find the model with the best parameter values.
